@@ -29,13 +29,13 @@ app.use(express.static(__dirname+'/public'));
 mongodb.Db.connect(config.mongodb.url, function(error, client) {
  var dbRequests = new mongodb.Collection(client, 'requests');
 
-  app.post('/callback', function(req, res) {
-
-    console.log(req.body);
+  app.all('/callback', function(req, res) {
+    console.log(req);
 
     var doc = {
       received: new Date(),
       ip: req.ip,
+      method: req.method,
       path: req.path,
       query: req.query,
       body: req.body,
