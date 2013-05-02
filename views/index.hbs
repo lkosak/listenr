@@ -1,0 +1,28 @@
+<div class="requests">
+  {{#each reqs}}
+    <div class="request clearfix">
+      <dl class="dl-horizontal">
+        <dt>Received</dt>
+        <dd>{{this.received}}</dd>
+        <dt>IP</dt>
+        <dd>{{this.ip}}</dd>
+
+        <dt>Query string params</dt>
+        <dd>
+          <div class="params">
+            {{print this.query}}
+          </div>
+        </dd>
+
+        {{#if this.body}}
+          <dt>Body params</dt>
+          <dd>
+            <div class="params">
+              {{print this.body}}
+            </div>
+          </dd>
+        {{/if}}
+      </dl>
+    </div>
+  {{/each}}
+</div>

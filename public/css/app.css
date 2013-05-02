@@ -1,0 +1,9 @@
+.request {
+  border: 1px solid #efefef;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+.params {
+  background-color: #efefef;
+  padding: 20px;
+}
