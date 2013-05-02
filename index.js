@@ -54,5 +54,5 @@ mongodb.Db.connect(config.mongodb.url, function(error, client) {
     });
   });
 
-  app.listen(3001);
+  app.listen(process.env.PORT || 3001);
 });
