@@ -10,7 +10,8 @@ hbs.registerHelper('print', function(obj) {
 
   for(var prop in obj) {
     props.push("<dt>"+prop+"</dt>");
-    props.push("<dd>"+obj[prop]+"</dd>");
+    var propValue = obj[prop] ? obj[prop] : "&nbsp;"; // make sure something is displayed
+    props.push("<dd>"+propValue+"</dd>");
   }
 
   return new hbs.SafeString("<dl>"+props.join("")+"</dl>");
@@ -39,7 +40,8 @@ mongodb.Db.connect(config.mongodb.url, function(error, client) {
       path: req.path,
       query: req.query,
       body: req.body,
-      rawBody: req.rawBody
+      rawBody: req.rawBody,
+      headers: req.headers,
     };
 
     dbRequests.insert(doc, function(err) {
