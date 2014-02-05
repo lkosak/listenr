@@ -6,7 +6,7 @@
         <dd>{{this.received}}</dd>
         <dt>IP</dt>
         <dd>{{this.ip}}</dd>
-    
+
         <dt>Method</dt>
         <dd>{{this.method}}</dd>
 
@@ -22,6 +22,15 @@
           <dd>
             <div class="params">
               {{print this.body}}
+            </div>
+          </dd>
+        {{/if}}
+
+        {{#if this.headers}}
+          <dt>Headers</dt>
+          <dd>
+            <div class="params">
+              {{print this.headers}}
             </div>
           </dd>
         {{/if}}
